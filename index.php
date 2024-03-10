@@ -1,3 +1,13 @@
+<?php
+$conn=mysqli_connect("localhost","root","","u516949160_parampara");
+if(!$conn){
+    echo "Page Not Found.";
+}
+else{
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -8,7 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Manup | Template</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+    .madimi-one-regular {
+        font-family: "Madimi One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
 
+    </style>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
         rel="stylesheet">
@@ -36,7 +54,8 @@
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="img/logo.png" alt="">
+                    <!-- <img style="background:black;" src="img/logo.png" alt="" height="70px"> -->
+                    <h3 style="font-family:'Madimi One';">Parampara 2024</h3>
                 </a>
             </div>
             <div class="nav-menu">
@@ -67,7 +86,7 @@
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="img/hero.jpg">
         <div class="container">
-            <div class="row">
+            <div class="row p-4">
                 <div class="col-lg-7">
                     <div class="hero-text">
                         <span>11 to 13 April 2K24, ITM, GIDA, Gorakhpur</span>
@@ -76,7 +95,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img src="img/hero-right.png" alt="">
+                    <img src="img/logo.png" alt="">
                 </div>
             </div>
         </div>
@@ -160,174 +179,98 @@
                 </div>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-1.jpg">
+
+        <!-- Technical -->
+        <?php
+            $query="select * from participants where position = 'Leader' and type = 'Technical'";
+            $res=mysqli_query($conn,$query);
+            $row=mysqli_num_rows($res);
+            if($row>0)
+            {
+                while($row=mysqli_fetch_array($res))
+                {
+                           
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo $row['img']; ?>">
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb']; ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta']; ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter']; ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin']; ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Sandeep Prajapati</h5>
-                <span>Technical Head</span>
+                <h5><?php echo $row['name'] ?></h5>
+                <span><?php echo $row['type'] ?> <?php echo $row['position'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-2.jpg">
+        <?php 
+                }
+            }
+        ?>
+        
+        <!-- Cultural -->
+        
+        <?php
+            $query="select * from participants where position = 'Leader' and type = 'Cultural'";
+            $res=mysqli_query($conn,$query);
+            $row=mysqli_num_rows($res);
+            if($row>0)
+            {
+                while($row=mysqli_fetch_array($res))
+                {
+                           
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo $row['img']; ?>">
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb']; ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta']; ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter']; ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin']; ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Rajeev Sharma</h5>
-                <span>Technical Head</span>
+                <h5><?php echo $row['name'] ?></h5>
+                <span><?php echo $row['type'] ?> <?php echo $row['position'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-3.jpg">
+        <?php 
+                }
+            }
+        ?>
+
+        <!-- Sport -->
+
+        <?php
+            $query="select * from participants where position = 'Leader' and type = 'Sport'";
+            $res=mysqli_query($conn,$query);
+            $row=mysqli_num_rows($res);
+            if($row>0)
+            {
+                while($row=mysqli_fetch_array($res))
+                {
+                           
+        ?>
+        <div class="member-item set-bg" data-setbg="<?php echo $row['img']; ?>">
             <div class="mi-social">
                 <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="<?php echo $row['fb']; ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo $row['insta']; ?>"><i class="fa fa-instagram"></i></a>
+                    <a href="<?php echo $row['twitter']; ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo $row['linkedin']; ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="mi-text">
-                <h5>Krishna Chauhan</h5>
-                <span>Technical Head</span>
+                <h5><?php echo $row['name'] ?></h5>
+                <span><?php echo $row['type'] ?> <?php echo $row['position'] ?></span>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-4.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Amisha</h5>
-                <span>Technical Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-5.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>C Head 1</h5>
-                <span>Cultural Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-6.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>C Head 2</h5>
-                <span>Cultural Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-7.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>C Head 3</h5>
-                <span>Cultural Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-8.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>C Head 4</h5>
-                <span>Cultural Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-9.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Anchal Verma</h5>
-                <span>Sports Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-10.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>S Head 2</h5>
-                <span>Sports Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-2.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>S Head 3</h5>
-                <span>Sports Head</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="img/team-member/member-1.jpg">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>S Head 4</h5>
-                <span>Sports Head</span>
-            </div>
-        </div>
+        <?php 
+                }
+            }
+        ?>
     </section>
     <!-- Team Member Section End -->
 
@@ -974,13 +917,27 @@
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Cultural'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row[0]; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -993,15 +950,27 @@
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Technical'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row['name']; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -1011,13 +980,27 @@
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Sport'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row[0]; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -1111,7 +1094,7 @@
                         </ul>
                         <div class="ct-links">
                             <span>Website:</span>
-                            <p>https://parampara.mrcool.in/</p>
+                            <p>https://parampara2024.com</p>
                         </div>
                     </div>
                 </div>
@@ -1166,7 +1149,7 @@
                 <div class="col-lg-12">
                     <div class="footer-text">
                         <div class="ft-logo">
-                            <a href="#" class="footer-logo"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="#" class="footer-logo"><h4 style="font-family:'Madimi One';color:white;">Parampara 2024</h4></a>
                         </div>
                         <ul>
                             <li><a href="#">Home</a></li>
@@ -1203,3 +1186,7 @@
 </body>
 
 </html>
+
+<?php
+}
+?>
