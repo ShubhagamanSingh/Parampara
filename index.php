@@ -1,3 +1,13 @@
+<?php
+$conn=mysqli_connect("localhost","root","","u516949160_parampara");
+if(!$conn){
+    echo "Page Not Found.";
+}
+else{
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -1203,3 +1213,7 @@
 </body>
 
 </html>
+
+<?php
+}
+?>
