@@ -18,7 +18,15 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Manup | Template</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+    .madimi-one-regular {
+        font-family: "Madimi One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
 
+    </style>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
         rel="stylesheet">
@@ -46,7 +54,8 @@ else{
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="img/logo.png" alt="">
+                    <!-- <img style="background:black;" src="img/logo.png" alt="" height="70px"> -->
+                    <h3 style="font-family:'Madimi One';">Parampara 2024</h3>
                 </a>
             </div>
             <div class="nav-menu">
@@ -77,7 +86,7 @@ else{
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="img/hero.jpg">
         <div class="container">
-            <div class="row">
+            <div class="row p-4">
                 <div class="col-lg-7">
                     <div class="hero-text">
                         <span>11 to 13 April 2K24, ITM, GIDA, Gorakhpur</span>
@@ -86,7 +95,7 @@ else{
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img src="img/hero-right.png" alt="">
+                    <img src="img/logo.png" alt="">
                 </div>
             </div>
         </div>
@@ -984,13 +993,27 @@ else{
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Cultural'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row[0]; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -1003,15 +1026,27 @@ else{
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Technical'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row[0]; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -1021,13 +1056,27 @@ else{
                         <div class="pi-price">
                             <h2><span>₹</span>600/-</h2>
                         </div>
+                        <?php
+                            $query="select name from main_events where type = 'Sport'";
+                            $res=mysqli_query($conn,$query);
+                            $row=mysqli_num_rows($res);
+                            if($row>0)
+                            {
+                           
+                        ?>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                        <?php
+                                while($row=mysqli_fetch_array($res))
+                                {
+                        ?>
+                            <li><?php echo $row[0]; ?></li>
+                        <?php
+                                }
+                        ?>
                         </ul>
+                        <?php
+                            }
+                        ?>
                         <a href="#" class="price-btn">Get Info <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -1121,7 +1170,7 @@ else{
                         </ul>
                         <div class="ct-links">
                             <span>Website:</span>
-                            <p>https://parampara.mrcool.in/</p>
+                            <p>https://parampara2024.com</p>
                         </div>
                     </div>
                 </div>
@@ -1176,7 +1225,7 @@ else{
                 <div class="col-lg-12">
                     <div class="footer-text">
                         <div class="ft-logo">
-                            <a href="#" class="footer-logo"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="#" class="footer-logo"><h4 style="font-family:'Madimi One';color:white;">Parampara 2024</h4></a>
                         </div>
                         <ul>
                             <li><a href="#">Home</a></li>
